@@ -65,6 +65,17 @@ namespace TDD_OLS
             }
         }
 
-        
+        [TestMethod]
+        public void Remove_OLS()
+        {
+            OLS<string> list = new OLS<string>();
+            list.Add_in_Tail("Смирнов");
+            list.Add_in_Head("Петров");
+            list.Add_in_Head("Иванов");
+            list.Add_in_Head("Васичкин");
+            list.Clear(list);
+
+            Assert.IsNull(list);
+        }
     }
 }
