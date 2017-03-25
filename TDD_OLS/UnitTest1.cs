@@ -19,8 +19,20 @@ namespace TDD_OLS
         public void Insert_Node()
         {
             OLS<string> list = new OLS<string>();
-            list.Add_in_Head("Смирнов");
-            Assert.AreEqual(list.head.Data, "Смирнов");
+            list.Add_in_Tail("Смирнов");
+            list.Add_in_Head("Петров");
+            list.Add_in_Head("Иванов");
+            list.Add_in_Head("Васичкин");
+            list.Add("Кузнецова", "Иванов");
+
+            OLS<string>.Node<string> current = list.head;
+            int i = 0;
+            while (i != 3)
+            {
+                current = current.Next;
+                i++;
+            }
+            Assert.AreNotEqual(current.Data, "Кузнецова");
         }
 
         [TestMethod]
