@@ -75,7 +75,12 @@ namespace TDD_OLS
             list.Add_in_Head("Васичкин");
             list.Clear(list);
 
-            Assert.IsNull(list);
+            OLS<string>.Node<string> current = list.head;
+            while (current != null)
+            {
+                Assert.AreEqual(current.Data, null);
+                current = current.Next;
+            }
         }
     }
 }
