@@ -73,7 +73,7 @@ namespace TDD_OLS
             list.Add_in_Head("Петров");
             list.Add_in_Head("Иванов");
             list.Add_in_Head("Васичкин");
-            list.Clear(list);
+            list.Clear();
 
             OLS<string>.Node<string> current = list.head;
             while (current != null)

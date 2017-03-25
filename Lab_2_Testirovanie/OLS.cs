@@ -105,7 +105,7 @@ namespace Lab_2_Testirovanie
         }
 
         // очистка списка
-        public void Clear(OLS<T> k)
+        public void Clear()
         {
             head = null;
             tail = null;
