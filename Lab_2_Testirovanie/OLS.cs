@@ -103,5 +103,13 @@ namespace Lab_2_Testirovanie
             }
             return false;
         }
+
+        // очистка списка
+        public void Clear(OLS<T> k)
+        {
+            head = null;
+            tail = null;
+            count = 0;
+        }
     }
 }
