@@ -16,6 +16,16 @@ namespace TDD_OLS
         }
 
         [TestMethod]
+        public void Insert_Two_Node()
+        {
+            OLS<string> list = new OLS<string>();
+            list.Add_in_Tail("Смирнов");
+            list.Add_in_Head("Петров");
+            Assert.AreEqual(list.tail.Data, "Смирнов");
+            Assert.AreEqual(list.head.Data, "Петров");
+        }
+
+        [TestMethod]
         public void Insert_Node()
         {
             OLS<string> list = new OLS<string>();
@@ -33,16 +43,6 @@ namespace TDD_OLS
                 i++;
             }
             Assert.AreNotEqual(current.Data, "Кузнецова");
-        }
-
-        [TestMethod]
-        public void Insert_Two_Node()
-        {
-            OLS<string> list = new OLS<string>();
-            list.Add_in_Tail("Смирнов");
-            list.Add_in_Head("Петров");
-            Assert.AreEqual(list.tail.Data, "Смирнов");
-            Assert.AreEqual(list.head.Data, "Петров");
         }
 
         [TestMethod]
@@ -64,5 +64,7 @@ namespace TDD_OLS
                 current = current.Next;
             }
         }
+
+        
     }
 }

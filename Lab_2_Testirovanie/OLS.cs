@@ -45,6 +45,33 @@ namespace Lab_2_Testirovanie
         }
 
         // вставка элемента
+        public void Add(T data, T last)
+        {
+            Node<T> node = new Node<T>(data);
+
+            if (head == null)
+            {
+                head = node;
+            }
+            else
+            {
+                Node<T> current = head;
+                while (current.Next != null)
+                {
+                    if (current.Data.Equals(last))
+                    {
+                        Node<T> temp = new Node<T>(last);
+                        temp = current.Next;
+                        current.Next = node;
+                        node.Next = temp;
+                        if (current.Next == null)
+                            tail = node;
+                    }
+                    current = current.Next;
+                }
+            }
+            count++;
+        }
 
         // удаление элемента
         public bool Remove(T data)
