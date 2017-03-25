@@ -18,8 +18,8 @@ namespace Lab_2_Testirovanie
             public Node<I> Next { get; set; }
         }
 
-        Node<T> head; // голова
-        Node<T> tail; // хвост
-        int count;  // количество элементов в списке
+        public Node<T> head; // голова
+        public Node<T> tail; // хвост
+        public int count;  // количество элементов в списке
     }
 }
