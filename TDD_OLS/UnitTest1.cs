@@ -32,5 +32,25 @@ namespace TDD_OLS
             Assert.AreEqual(list.tail.Data, "Смирнов");
             Assert.AreEqual(list.head.Data, "Петров");
         }
+
+        [TestMethod]
+        public void Remove_Node()
+        {
+            OLS<string> list = new OLS<string>();
+            list.Add_in_Tail("Смирнов");
+            list.Add_in_Head("Петров");
+            list.Add_in_Head("Иванов");
+            list.Add_in_Head("Васичкин");
+            list.Remove("Петров");
+
+            Assert.AreEqual(list.count, 3);
+
+            OLS<string>.Node<string> current = list.head;
+            while (current != null)
+            {
+                Assert.AreNotEqual(current.Data, "Петров");
+                current = current.Next;
+            }
+        }
     }
 }
