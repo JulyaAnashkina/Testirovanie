@@ -43,6 +43,38 @@ namespace Lab_2_Testirovanie
             tail = node;
             count++;
         }
-        
+
+        // вставка элемента
+
+        // удаление элемента
+        public bool Remove(T data)
+        {
+            Node<T> current = head;
+            Node<T> previous = null;
+
+            while (current != null)
+            {
+                if (current.Data.Equals(data))
+                {
+                    if (previous != null)  // Если узел в середине или в конце
+                    {
+                        previous.Next = current.Next;  // убираем узел current
+                        if (current.Next == null)
+                            tail = previous;
+                    }
+                    else
+                    {  // если удаляется первый элемент
+                        head = head.Next;
+                        if (head == null)
+                            tail = null;
+                    }
+                    count--;
+                    return true;
+                }
+                previous = current;
+                current = current.Next;
+            }
+            return false;
+        }
     }
 }
