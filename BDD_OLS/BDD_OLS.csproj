@@ -63,6 +63,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Insert_Node_in_List.feature</DependentUpon>
     </Compile>
+    <Compile Include="Remove_Node.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Remove_Node.feature</DependentUpon>
+    </Compile>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ДобавитьЭлементВСписокSteps.cs" />
@@ -80,6 +85,10 @@
       <LastGenOutput>Insert_Node_in_List.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Remove_Node.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Remove_Node.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
