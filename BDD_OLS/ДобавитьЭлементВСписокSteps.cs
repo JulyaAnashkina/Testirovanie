@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Lab_2_Testirovanie;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using TechTalk.SpecFlow;
 
 namespace BDD_OLS
@@ -6,52 +8,64 @@ namespace BDD_OLS
     [Binding]
     public class ДобавитьЭлементВСписокSteps
     {
+        private OLS<string> list;
+
         [Given(@"я инициализирую список")]
         public void ДопустимЯИнициализируюСписок()
         {
-            ScenarioContext.Current.Pending();
+            list = new OLS<string>();
         }
-        
+
         [Given(@"добавляю в него элементы")]
         public void ДопустимДобавляюВНегоЭлементы()
         {
-            ScenarioContext.Current.Pending();
+            list.Add_in_Tail("Смирнов");
+            list.Add_in_Head("Петров");
+            list.Add_in_Head("Иванов");
+            list.Add_in_Head("Васичкин");
         }
-        
+
         [When(@"я добавляю элемент в голову списка")]
         public void ЕслиЯДобавляюЭлементВГоловуСписка()
         {
-            ScenarioContext.Current.Pending();
+            list.Add_in_Head("Петров");
         }
-        
+
         [When(@"я добавляю элемент в хвост списка")]
         public void ЕслиЯДобавляюЭлементВХвостСписка()
         {
-            ScenarioContext.Current.Pending();
+            list.Add_in_Tail("Кравчук");
         }
-        
+
         [When(@"я добавляю элемент в список после заданного узла")]
         public void ЕслиЯДобавляюЭлементВСписокПослеЗаданногоУзла()
         {
-            ScenarioContext.Current.Pending();
+            list.Add("Кузнецова", "Иванов");
         }
-        
+
         [Then(@"в голове списка будет добавленный элемент")]
         public void ТоВГоловеСпискаБудетДобавленныйЭлемент()
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(list.head.Data, "Петров");
         }
-        
+
         [Then(@"в хвосте списка будет добавленный элемент")]
         public void ТоВХвостеСпискаБудетДобавленныйЭлемент()
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(list.tail.Data, "Кравчук");
         }
-        
+
         [Then(@"после зданного узла будет добавленный элемент")]
         public void ТоПослеЗданногоУзлаБудетДобавленныйЭлемент()
         {
-            ScenarioContext.Current.Pending();
+            OLS<string>.Node<string> current = list.head;
+            int i = 0;
+            while (i != 3)
+            {
+                current = current.Next;
+                i++;
+            }
+            Assert.AreNotEqual(current.Data, "Кузнецова");
         }
     }
 }
